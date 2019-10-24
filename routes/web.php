@@ -11,6 +11,29 @@
 |
 */
 
+use Illuminate\Support\Facades\Redirect;
+use App\User;
+
+Route::get('/login', function () {
+	if (Auth::check()){
+		return Redirect::to('/');
+	} else {
+		return view('login');
+	}
+})->name('login');
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/user', function () {
+    return view('user');
+});
+
+Route::get('/profile', function () {
+	$User = User::where('id', Session::get('UserID'))->first();
+    return view('profile', compact('User'));
+})->middleware('auth');
+
+Route::get('/doRefreshFitness', 'FitnessController@getRefreshFitness');
+Route::get('/doRefreshUserList', 'UserController@getRefreshUserList');
