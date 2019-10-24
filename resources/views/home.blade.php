@@ -15,7 +15,7 @@
 				
 		</div>
 		<div id="buttonfooter">
-			<button onclick="window.location.href='/doLogout'" class="btn animate" id="btnLogout">Logout</button>
+			<button onclick="window.location.href='/login'" class="btn animate" id="btnLogout">Logout</button>
 			<button onclick="window.location.href='/user'" class="btn animate" id="btnUserList">User List</button>
 		</div>
 	</div>
