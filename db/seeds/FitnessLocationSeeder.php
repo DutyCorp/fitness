@@ -15,6 +15,26 @@ class FitnessLocationSeeder extends AbstractSeed
      */
     public function run()
     {
+        $data = [
+            [
+                'FitnessLocationName' => 'Jakarta'
+            ],
+            [
+                'FitnessLocationName' => 'Bandung'
+            ],
+            [
+                'FitnessLocationName' => 'Surabaya'
+            ],
+            [
+                'FitnessLocationName' => 'Bali'
+            ],
+            [
+                'FitnessLocationName' => 'Medan'
+            ]
+        ];
 
+        $table = $this->table('fitnesslocation');
+        $table->insert($data)
+              ->save();
     }
 }

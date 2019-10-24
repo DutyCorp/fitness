@@ -33,21 +33,13 @@ class FitnessMigration extends AbstractMigration
     {
         $table = $this->table('fitness');
         $table->addColumn("FitnessName", 'text')
-            $table->addForeignKey('FitnessCategoryID', 'fitnesscategory', ['id'],
-                            ['constraint' => 'fitness_category_id']);
-            $table->addForeignKey('FitnessCategoryID', 'fitnesscategory', ['id'],
-                            ['constraint' => 'fitness_category_id']);
+            ->addColumn("FitnessCategoryID", 'integer')
+            ->addColumn("FitnessLocationID", 'integer')
+            ->addForeignKey('FitnessCategoryID', 'fitnesscategory', ['id'],
+                            ['constraint' => 'fitness_category_id'])
+            ->addForeignKey('FitnessLocationID', 'fitnesslocation', ['id'],
+                            ['constraint' => 'fitness_location_id'])
             ->addColumn("FitnessPrice", 'integer')
             ->create();
-    }
-
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-
     }
 }
